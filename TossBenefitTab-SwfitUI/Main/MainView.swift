@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct MainView: View {
+    
     var body: some View {
         NavigationView{
-            List(){
+
+            ScrollView{
                 HStack(spacing: 20){
                     Image("ic_point")
                         .resizable()
@@ -23,7 +25,8 @@ struct MainView: View {
                     }
                     .font(.system(size: 16, weight: .bold))
                 }
-                .listRowSeparator(.hidden)
+                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 0))
+                .frame(maxWidth: .infinity, alignment: .leading)
                 
                 VStack(spacing: 20){
                     Image(systemName: "sparkles")
@@ -41,26 +44,14 @@ struct MainView: View {
                     })
                     .frame(width:160, height: 50)
                     .background(.blue)
+                    .foregroundColor(.white)
                     .cornerRadius(10)
                 }
-                .padding(EdgeInsets(top: 30, leading: 100, bottom: 30, trailing: 100))
+                .frame(maxWidth: .infinity, minHeight: 250)
                 .background(.gray.opacity(0.3))
                 .cornerRadius(10)
-                .listRowSeparator(.hidden)
-                
-                HStack(spacing: 20){
-                    Image("ic_point")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 80, height: 80)
-                    VStack(alignment: .leading){
-                        Text("내 포인트")
-                        Text("0원")
-                    }
-                }
-                .listRowSeparator(.hidden)
+                .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
             }
-            .listStyle(.plain)
             .navigationTitle("혜택")
         }
     }
