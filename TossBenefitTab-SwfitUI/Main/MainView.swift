@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     
+    @StateObject var vm =  MainViewModel()
+    
     var body: some View {
         NavigationView{
 
@@ -51,6 +53,10 @@ struct MainView: View {
                 .background(.gray.opacity(0.3))
                 .cornerRadius(10)
                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                
+                ForEach($vm.models){ $item in
+                    BenefitListRow(benefit: $item)
+                }
             }
             .navigationTitle("혜택")
         }

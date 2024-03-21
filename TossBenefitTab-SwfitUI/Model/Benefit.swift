@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Benefit: Hashable {
+struct Benefit: Hashable, Identifiable{
     var id = UUID()
     let imageName: String
     let title: String
